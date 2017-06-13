@@ -10,7 +10,7 @@
 #'
 #'@return a tibble
 #'
-#'@examples fars_read("accident_2015.csv.bz2")
+#'@examples fars_read("accident_2014.csv.bz2")
 #'
 
 fars_read <- function(filename) {
