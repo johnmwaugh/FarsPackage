@@ -1,0 +1,34 @@
+---
+title: "Fars Package"
+author: "John Waugh"
+date: "15 June 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
+```
+
+## Summary Data
+
+This package analyses data from the US National Highway Traffic Safety Administration's Fatality Analysis Reporting System, which is a nationwide census providing the American public yearly data regarding fatal injuries suffered in motor vehicle traffic crashes.
+
+Accident data is included from the years 2013, 2014 and 2015. Fatal accident occurences can be summarized by year and month. 
+
+
+
+```{r sum_years, eval = TRUE}
+
+fars_summarize_years(c(2013,2014,2015))
+
+```
+
+## Map states
+
+Accident locations in a given year can also be plotted on a state map. 
+
+```{r map states, echo=TRUE}
+fars_map_state(6, 2014)
+```
+
+

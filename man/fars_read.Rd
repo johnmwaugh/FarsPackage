@@ -17,6 +17,6 @@ Reads a csv file and converts it to a data frame.
 The file must be saved in the same directory as the function script.
 }
 \examples{
-fars_read("accident_2014.csv.bz2")
+fars_read("accident_2013.csv.bz2")
 
 }

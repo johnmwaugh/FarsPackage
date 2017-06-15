@@ -5,6 +5,7 @@
 #'
 #'
 #'@import package dplyr
+#'@import package readr
 #'
 #'@param filename a string
 #'
@@ -82,6 +83,7 @@ fars_read_years <- function(years) {
 #'
 #'@import package dplyr
 #'@import package tidyr
+#'@import package magrittr
 #'
 #'@param years (c(2013,2014,2015))
 #'
