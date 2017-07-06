@@ -9,50 +9,48 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
-
-- Never uses retina figures
-- Has a smaller default figure size
-- Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style
-
-## Vignette Info
-
-Note the various macros within the `vignette` section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
-
-## Styles
-
-The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
-
-    output: 
-      rmarkdown::html_vignette:
-        css: mystyles.css
-
-## Figures
-
-The figure sizes have been customised so that you can easily put two images side-by-side. 
-
-```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
 ```
 
-You can enable figure captions by `fig_caption: yes` in YAML:
+## Introduction
 
-    output:
-      rmarkdown::html_vignette:
-        fig_caption: yes
+This package analyses data from the US National Highway Traffic Safety Administration's Fatality Analysis Reporting System, which is a nationwide census providing the American public yearly data regarding fatal injuries suffered in motor vehicle traffic crashes.
 
-Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
+Accident data is included from the years 2013, 2014 and 2015. Fatal accident occurences can be summarized by year and month. 
 
-## More Examples
+##Helper Functions
 
-You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
+The fars_read, make_filenane and fars_read_years functions serve as helper functions to read the csv files which contain the source data.
 
-```{r, echo=FALSE, results='asis'}
-knitr::kable(head(mtcars, 10))
+The fars_read function takes a filename as its argument.
+
+```{r fars_read, eval = TRUE}
+fars_read("accident_2013.csv.bz2")
 ```
 
-Also a quote using `>`:
+The filename is created simply with the make_filename function which takes a year as its argument.
+```{r make_filename, eval = TRUE}
+make_filename(2013)
+```
 
-> "He who gives up [code] safety for [code] speed deserves neither."
-([via](https://twitter.com/hadleywickham/status/504368538874703872))
+A list of files can be read in with the fars_read_years function.
+```{r read_years, eval = TRUE}
+fars_read_years(c(2013,2014,2015))
+```
+
+
+##Summary Data
+
+Fatal accident occurences can then be summarized by year and month.
+```{r sum_years, eval = TRUE}
+fars_summarize_years(c(2013,2014,2015))
+```
+
+Accident locations in a given year and state can also be plotted on a state map using the maps and graphics packages.  
+
+```{r, map_states, echo = TRUE}
+fars_map_state(6, 2014)
+
+```
+

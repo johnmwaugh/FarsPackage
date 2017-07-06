@@ -15,9 +15,7 @@ This package analyses data from the US National Highway Traffic Safety Administr
 
 Accident data is included from the years 2013, 2014 and 2015. Fatal accident occurences can be summarized by year and month. 
 
-
-
-```{r sum_years, eval = TRUE}
+```{r summarize_years, eval = TRUE}
 
 fars_summarize_years(c(2013,2014,2015))
 
