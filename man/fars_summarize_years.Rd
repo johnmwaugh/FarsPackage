@@ -19,4 +19,5 @@ The year and number of accidents for each month are spread to columns.
 }
 \examples{
 fars_summarize_years(c(2013,2014,2015))
+
 }

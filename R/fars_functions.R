@@ -12,7 +12,7 @@
 #'@return a tibble
 #'
 #'@examples fars_read("accident_2013.csv.bz2")
-#'
+#'@export
 
 fars_read <- function(filename) {
   if(!file.exists(filename))
@@ -34,6 +34,7 @@ fars_read <- function(filename) {
 #'
 #'@examples
 #'make_filename(2015)
+#'@export
 
 make_filename <- function(year) {
   year <- as.integer(year)
@@ -59,6 +60,7 @@ make_filename <- function(year) {
 #'
 #'@examples
 #'fars_read_years(c(2013,2014,2015))
+#'@export
 
 fars_read_years <- function(years) {
   lapply(years, function(year) {
@@ -92,6 +94,8 @@ fars_read_years <- function(years) {
 
 #'@examples
 #'fars_summarize_years(c(2013,2014,2015))
+#'
+#'@export
 
 fars_summarize_years <- function(years) {
   dat_list <- fars_read_years(years)
@@ -125,6 +129,7 @@ fars_summarize_years <- function(years) {
 #'
 #'@examples
 #'fars_map_state(6, 2014)
+#'@export
 
 
 fars_map_state <- function(state.num, year) {
