@@ -1,7 +1,7 @@
 Package: FarsPackage
 Type: Package
 Title: Fatality Analysis Reporting System
-Version: 0.1.0
+Version: 1.1.0
 Author: John M Waugh
 Maintainer: The package maintainer <johnmwaugh@hotmail.com>
 Description: Plots location of fatal road traffic accidents on U.S state map by state and year.
