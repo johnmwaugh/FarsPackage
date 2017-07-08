@@ -15,6 +15,9 @@
 #'@export
 
 fars_read <- function(filename) {
+  system.file("extdata", "accident_2015.csv.bz2", package = "FarsPackage")
+  system.file("extdata", "accident_2014.csv.bz2", package = "FarsPackage")
+  system.file("extdata", "accident_2014.csv.bz2", package = "FarsPackage")
   if(!file.exists(filename))
     stop("file '", filename, "' does not exist")
   data <- suppressMessages({
