@@ -128,7 +128,7 @@ fars_summarize_years <- function(years) {
 #'@return a map resembling a U.S state with plotted accident locations
 #'
 #'@examples
-#'fars_map_state(6, 2014)
+#'fars_map_state(6, 2015)
 #'@export
 
 
