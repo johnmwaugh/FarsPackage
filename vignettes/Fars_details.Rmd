@@ -49,8 +49,7 @@ fars_summarize_years(c(2013,2014,2015))
 
 Accident locations in a given year and state can also be plotted on a state map using the maps and graphics packages.  
 
-#```{r, map_states, echo = TRUE}
-#fars_map_state(4, 2014)
-
-#```
+```{r, map_states, echo = TRUE}
+fars_map_state(4, 2015)
+```
 

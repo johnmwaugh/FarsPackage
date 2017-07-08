@@ -27,5 +27,5 @@ use points function in graphics package to set plot character type to 46 pch
 (a rectangle of side 0,01 inch)
 }
 \examples{
-fars_map_state(6, 2014)
+fars_map_state(8, 2015)
 }
