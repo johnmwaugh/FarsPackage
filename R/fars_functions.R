@@ -11,7 +11,7 @@
 #'
 #'@return a tibble
 #'
-#'@examples fars_read("accident_2013.csv.bz2")
+#'@examples fars_read("accident_2015.csv.bz2")
 #'@export
 
 fars_read <- function(filename) {
