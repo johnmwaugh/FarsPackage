@@ -15,7 +15,7 @@ fars_map_state(state.num, year)
 a map resembling a U.S state with plotted accident locations
 }
 \description{
-Uses maps package to plot accident location on state map identified by STATE field
+Uses maps  to plot accident location on state map identified by STATE field
  enter state.num and year
 Includes helper functions make_filename() and fars_read() to read data for year entered.
 Checks state.num input is a valid identifier with %in% unique(data$STATE).
@@ -23,7 +23,7 @@ Uses dplyr to filter by state number and create subset data.sub.
 If number of rows in subset == 0 (0L integer) then display message "no accidents to plot".
 Plots ponts (x,y) in subset on map where x latitude is > 90 and y longitude > 900
 xlim and ylim functions set world coordinates
-use points function in graphics package to set plot character type to 46 pch
+use points function in graphics  to set plot character type to 46 pch
 (a rectangle of side 0,01 inch)
 }
 \examples{

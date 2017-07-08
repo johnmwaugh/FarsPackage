@@ -18,3 +18,9 @@ Imports: dplyr,
     tidyr,
     maps,
     graphics
+Exports: fars_read, 
+    fars_read_years, 
+    fars_summarize_years,
+    fars_map_state,
+    make_filename
+    

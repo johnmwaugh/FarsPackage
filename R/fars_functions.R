@@ -4,8 +4,8 @@
 #'The file must be saved in the same directory as the function script.
 #'
 #'
-#'@import package dplyr
-#'@import package readr
+#'@import  dplyr
+#'@import  readr
 #'
 #'@param filename a string
 #'
@@ -50,7 +50,7 @@ make_filename <- function(year) {
 #'
 #'An error message is generated if an invalid year is entered in the supplied list
 #'
-#'@import package dplyr
+#'@import  dplyr
 #'
 #'@param years A list of years such as c(2013,2014,2015)
 #'@param year year function applied to each year in the list
@@ -83,9 +83,9 @@ fars_read_years <- function(years) {
 #'combines the data frames into dat_list object then groups by year and month.
 #'The year and number of accidents for each month are spread to columns.
 #'
-#'@import package dplyr
-#'@import package tidyr
-#'@import package magrittr
+#'@import  dplyr
+#'@import  tidyr
+#'@import  magrittr
 #'
 #'@param years (c(2013,2014,2015))
 #'
@@ -107,7 +107,7 @@ fars_summarize_years <- function(years) {
 
 #'fars_map_state
 #'
-#'Uses maps package to plot accident location on state map identified by STATE field
+#'Uses maps  to plot accident location on state map identified by STATE field
 #'  enter state.num and year
 #'Includes helper functions make_filename() and fars_read() to read data for year entered.
 #'Checks state.num input is a valid identifier with %in% unique(data$STATE).
@@ -115,12 +115,12 @@ fars_summarize_years <- function(years) {
 #'If number of rows in subset == 0 (0L integer) then display message "no accidents to plot".
 #'Plots ponts (x,y) in subset on map where x latitude is > 90 and y longitude > 900
 #'xlim and ylim functions set world coordinates
-#'use points function in graphics package to set plot character type to 46 pch
+#'use points function in graphics  to set plot character type to 46 pch
 #'(a rectangle of side 0,01 inch)
 #'
-#'@import package dplyr
-#'@import package maps
-#'@import package graphics
+#'@import  dplyr
+#'@import  maps
+#'@import  graphics
 #'
 #'@param state.num is an integer between 1 and 56
 #'@param year is a string identifying a year
@@ -131,7 +131,8 @@ fars_summarize_years <- function(years) {
 #'fars_map_state(8, 2015)
 #'@export
 
-
+library(maps)
+library(graphics)
 fars_map_state <- function(state.num, year) {
   filename <- make_filename(year)
   data <- fars_read(filename)
