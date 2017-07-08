@@ -11,7 +11,7 @@
 #'
 #'@return a tibble
 #'
-#'@examples fars_read("accident_2013.csv.rda")
+#'@examples fars_read("accident_2013.csv.bz2")
 #'@export
 
 fars_read <- function(filename) {
@@ -38,7 +38,7 @@ fars_read <- function(filename) {
 
 make_filename <- function(year) {
   year <- as.integer(year)
-  sprintf("accident_%d.csv.rda", year)
+  sprintf("accident_%d.csv.bz2", year)
 }
 
 #'fars_read_years
