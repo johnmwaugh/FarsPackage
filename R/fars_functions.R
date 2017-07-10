@@ -11,7 +11,7 @@
 #'
 #'@return a tibble
 #'
-#'@examples fars_read("accident_2015.csv.bz2")
+#'@examples fars_read("./data-raw/accident_2015.csv.bz2")
 #'@export
 #'
 
@@ -32,7 +32,7 @@ fars_read <- function(filename) {
 #'
 #'@param year An integer value representing a year
 #'
-#'@return [1] "accident_2015.csv.bz2"
+#'@return [1] "./data-raw/accident_2015.csv.bz2"
 #'
 #'@examples
 #'make_filename(2015)
@@ -40,7 +40,7 @@ fars_read <- function(filename) {
 
 make_filename <- function(year) {
   year <- as.integer(year)
-  sprintf("./data-raw/accident_%d.csv.bz2", year)
+  sprintf("./FarsPackage/data-raw/accident_%d.csv.bz2", year)
 }
 
 #'fars_read_years
