@@ -15,7 +15,7 @@
 #'@export
 #'
 
-library(FarsPackage)
+#library(FarsPackage)
 fars_read <- function(filename) {
   if(!file.exists(filename))
     stop("file '", filename, "' does not exist")
@@ -133,8 +133,7 @@ fars_summarize_years <- function(years) {
 #'fars_map_state(8, 2015)
 #'@export
 
-library(maps)
-library(graphics)
+
 fars_map_state <- function(state.num, year) {
   filename <- make_filename(year)
   data <- fars_read(filename)
