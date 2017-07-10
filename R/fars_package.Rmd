@@ -6,6 +6,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
+library(FarsPackage)
 knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
 ```
 
@@ -29,6 +30,7 @@ fars_summarize_years(c(2013,2014,2015))
 Accident locations in a given year can also be plotted on a state map using the maps and graphics packages. 
 
 ```{r map states, echo=TRUE}
+library(maps)
 fars_map_state(6, 2015)
 ```
 
