@@ -13,7 +13,9 @@
 #'
 #'@examples fars_read("accident_2015.csv.bz2")
 #'@export
+#'
 
+library(FarsPackage)
 fars_read <- function(filename) {
   if(!file.exists(filename))
     stop("file '", filename, "' does not exist")
