@@ -15,7 +15,7 @@
 #'@export
 #'
 
-#library(FarsPackage)
+library(FarsPackage)
 fars_read <- function(filename) {
   if(!file.exists(filename))
     stop("file '", filename, "' does not exist")
