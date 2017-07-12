@@ -1,13 +1,14 @@
 ---
 title: "Fars Package"
 author: "John Waugh"
-date: "15 June 2017"
+date: "`r Sys.Date()`"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 library(FarsPackage)
 knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
+knitr::opts_knit$set(root.dir = "C:/Users/User/Documents/R/packages/FarsPackage")
 ```
 
 ## Summary Data

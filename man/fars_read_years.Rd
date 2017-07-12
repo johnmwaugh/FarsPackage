@@ -10,15 +10,13 @@ fars_read_years(years)
 \item{years}{A list of years such as c(2013,2014,2015)}
 
 \item{year}{year function applied to each year in the list}
-
-\item{file}{"accident_2015.csv.bz2"}
 }
 \value{
 tibbles n = n years
 }
 \description{
 Uses the fars_read and make_filename functions to read a list of inputted years and
- applies the year function over each element of the vector,
+applies the year function over each element of the vector,
 If year is valid calls fars_read function to read the csv file associated with each year
 Uses the dplyr function mutate to select month and year from data.
 }

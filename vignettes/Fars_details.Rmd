@@ -12,6 +12,7 @@ vignette: >
 ```{r setup, include=FALSE}
 library(FarsPackage)
 knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
+knitr::opts_knit$set(root.dir = "C:/Users/User/Documents/R/packages/FarsPackage")
 ```
 
 ## Introduction
@@ -27,7 +28,8 @@ The fars_read, make_filenane and fars_read_years functions serve as helper funct
 The fars_read function takes a filename as its argument.
 
 ```{r fars_read}
-fars_read("accident_2013.csv.bz2")
+
+fars_read(system.file("extdata", "accident_2015.csv.bz2", package = "FarsPackage"))
 
 ```
 
@@ -38,7 +40,7 @@ make_filename(2013)
 
 A list of files can be read in with the fars_read_years function.
 ```{r read_years, eval = TRUE}
-fars_read_years(c(2013,2014,2015))
+fars_read_years(c(2013,2014,2015)) 
 ```
 
 
@@ -51,10 +53,6 @@ fars_summarize_years(c(2013,2014,2015))
 
 Accident locations in a given year and state can also be plotted on a state map using the maps and graphics packages.
 
-```{r, libraries}
-library(maps)
-library(graphics)
-```
 
 ```{r, map_states, echo = TRUE}
 fars_map_state(4, 2015)

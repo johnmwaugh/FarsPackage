@@ -17,5 +17,5 @@ Reads a csv file and converts it to a data frame.
 The file must be saved in the same directory as the function script.
 }
 \examples{
-fars_read("accident_2015.csv.bz2")
+fars_read(system.file("extdata", "accident_2015.csv.bz2", package = "FarsPackage"))
 }

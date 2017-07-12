@@ -4,24 +4,23 @@
 #'The file must be saved in the same directory as the function script.
 #'
 #'
-#'@import  dplyr
-#'@import  readr
-#'
+#'@import dplyr
+#'@import readr
 #'@param filename a string
 #'
 #'@return a tibble
 #'
-#'@examples fars_read("C:data-raw/accident_2015.csv.bz2")
+#'@examples fars_read(system.file("extdata", "accident_2015.csv.bz2", package = "FarsPackage"))
 #'@export
 #'
 
-library(FarsPackage)
+
 fars_read <- function(filename) {
   if(!file.exists(filename))
     stop("file '", filename, "' does not exist")
   data <- suppressMessages({
     readr::read_csv(filename, progress = FALSE)
-  })
+    })
   dplyr::tbl_df(data)
 }
 
@@ -32,7 +31,7 @@ fars_read <- function(filename) {
 #'
 #'@param year An integer value representing a year
 #'
-#'@return [1] "C:data-raw/accident_2015.csv.bz2"
+#'@return [1] "C:/Users/User/Documents/R/win-library/3.3/FarsPackage/extdata/accident_2015.csv.bz2"
 #'
 #'@examples
 #'make_filename(2015)
@@ -40,23 +39,23 @@ fars_read <- function(filename) {
 
 make_filename <- function(year) {
   year <- as.integer(year)
-  sprintf("C:data-raw/accident_%d.csv.bz2", 2013)
+  system.file("extdata", sprintf("accident_%d.csv.bz2", year), package =
+                "FarsPackage")
 }
 
 #'fars_read_years
 #'
 #'Uses the fars_read and make_filename functions to read a list of inputted years and
-#'  applies the year function over each element of the vector,
+#'applies the year function over each element of the vector,
 #'If year is valid calls fars_read function to read the csv file associated with each year
 #'Uses the dplyr function mutate to select month and year from data.
 #'
 #'An error message is generated if an invalid year is entered in the supplied list
 #'
 #'@import  dplyr
-#'
+#'@import  magrittr
 #'@param years A list of years such as c(2013,2014,2015)
 #'@param year year function applied to each year in the list
-#'@param file "accident_2015.csv.bz2"
 #'
 #'@return tibbles n = n years
 #'
@@ -64,7 +63,7 @@ make_filename <- function(year) {
 #'fars_read_years(c(2013,2014,2015))
 #'@export
 
-fars_read_years <- function(years) {
+fars_read_years <- function(years){
   lapply(years, function(year) {
     file <- make_filename(year)
     tryCatch({
@@ -86,13 +85,11 @@ fars_read_years <- function(years) {
 #'The year and number of accidents for each month are spread to columns.
 #'
 #'@import  dplyr
-#'@import  tidyr
 #'@import  magrittr
-#'
+#'@import  tidyr
 #'@param years (c(2013,2014,2015))
 #'
 #'@return  a tibble
-
 
 #'@examples
 #'fars_summarize_years(c(2013,2014,2015))
@@ -100,6 +97,7 @@ fars_read_years <- function(years) {
 #'@export
 
 fars_summarize_years <- function(years) {
+  #library(magrittr)
   dat_list <- fars_read_years(years)
   dplyr::bind_rows(dat_list) %>%
     dplyr::group_by(year, MONTH) %>%
@@ -133,8 +131,9 @@ fars_summarize_years <- function(years) {
 #'fars_map_state(8, 2015)
 #'@export
 
-library(maps)
+
 fars_map_state <- function(state.num, year) {
+  requireNamespace("FarsPackage")
   filename <- make_filename(year)
   data <- fars_read(filename)
   state.num <- as.integer(state.num)
@@ -154,3 +153,8 @@ fars_map_state <- function(state.num, year) {
     graphics::points(LONGITUD, LATITUDE, pch = 46)
   })
 }
+
+#fars_read("C:data-raw/accident_2015.csv.bz2")
+
+readr::read_csv(system.file("extdata", "accident_2015.csv.bz2",
+                            package = "FarsPackage"))

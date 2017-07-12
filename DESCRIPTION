@@ -12,12 +12,12 @@ RoxygenNote: 6.0.1
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
-Imports: dplyr,
-    readr,
-    magrittr,
-    tidyr,
+Imports: magrittr,
     maps,
-    graphics
+    graphics,
+    readr,
+    tidyr,
+    dplyr
 Exports: fars_read, 
     fars_read_years, 
     fars_summarize_years,
