@@ -1,7 +1,5 @@
 library(testthat)
 
-source(system.file("R", "fars_functions.R", package = "FarsPackage"))
-
 test_that("fars_functions.R", {
 
     sum13 <- fars_summarize_years(2013)
