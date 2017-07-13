@@ -7,9 +7,8 @@
 fars_read_years(years)
 }
 \arguments{
-\item{years}{A list of years such as c(2013,2014,2015)}
-
-\item{year}{year function applied to each year in the list}
+\item{years}{A list of years such as c(2013,2014,2015)
+#@param year year function applied to each year in the list}
 }
 \value{
 tibbles n = n years

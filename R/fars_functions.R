@@ -53,9 +53,9 @@ make_filename <- function(year) {
 #'An error message is generated if an invalid year is entered in the supplied list
 #'
 #'@import  dplyr
-#'@import  magrittr
+#'
 #'@param years A list of years such as c(2013,2014,2015)
-#'@param year year function applied to each year in the list
+#'#@param year year function applied to each year in the list
 #'
 #'@return tibbles n = n years
 #'
@@ -85,8 +85,8 @@ fars_read_years <- function(years){
 #'The year and number of accidents for each month are spread to columns.
 #'
 #'@import  dplyr
-#'@import  magrittr
 #'@import  tidyr
+#'
 #'@param years (c(2013,2014,2015))
 #'
 #'@return  a tibble
@@ -97,7 +97,6 @@ fars_read_years <- function(years){
 #'@export
 
 fars_summarize_years <- function(years) {
-  #library(magrittr)
   dat_list <- fars_read_years(years)
   dplyr::bind_rows(dat_list) %>%
     dplyr::group_by(year, MONTH) %>%
@@ -154,7 +153,3 @@ fars_map_state <- function(state.num, year) {
   })
 }
 
-#fars_read("C:data-raw/accident_2015.csv.bz2")
-
-readr::read_csv(system.file("extdata", "accident_2015.csv.bz2",
-                            package = "FarsPackage"))
