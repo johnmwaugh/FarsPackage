@@ -8,7 +8,7 @@ output: html_document
 ```{r setup, include=FALSE}
 library(FarsPackage)
 knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
-knitr::opts_knit$set(root.dir = "C:/Users/User/Documents/R/packages/FarsPackage")
+#knitr::opts_knit$set(root.dir = "C:/Users/User/Documents/R/packages/FarsPackage")
 ```
 
 ## Summary Data
